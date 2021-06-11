@@ -20,6 +20,8 @@ var scriptproperties = PropertiesService.getScriptProperties();
 
 //get ID value from columm D1
 var folderId = sheet.getRange("D1").getValue();
+//To change D1 to other cell if you want to change input cell
+
 var folderId = folderId.toString().trim();
 
 //Don't clear if there is text or background
@@ -144,6 +146,8 @@ function getFolderTree(folderId, listAll) {
     var file, data, sheet = SpreadsheetApp.getActiveSheet();
     clearwhite();
     //sheet.appendRow(["Full Path", "Name", "Date", "URL", "Last Updated", "Description", "Size"]);
+   
+   //If this upper line is enable it will generate the top legend. I disable this because I need custom header on sheet.
     
     // Get files and folders
     getChildFolders(parentFolder.getName(), parentFolder, data, sheet, listAll);
@@ -189,6 +193,11 @@ function getChildFolders(parentName, parent, data, sheet, listAll) {
       childFolder.getLastUpdated(),
      // childFolder.getDescription(),
      // childFolder.getSize()
+     
+     /*You can change what information to display on the sheet.
+     In this case I only need file name,url date create and updated.
+     You also can change what information want to display first by changing order of the things.*/
+     
     ];
     // Write
     sheet.appendRow(data);
@@ -206,6 +215,11 @@ function getChildFolders(parentName, parent, data, sheet, listAll) {
         childFile.getLastUpdated(),
        // childFile.getDescription(),
        // childFile.getSize()
+       
+       /*You can change what information to display on the sheet.
+       In this case I only need file name,url date create and updated.
+       You also can change what information want to display first by changing order of the things.*/
+       
       ];
       // Write
       sheet.appendRow(data);
@@ -229,6 +243,9 @@ function getChildFoldersParent(parentName, parent, data, sheet) {
       childFolder.getUrl(),
       childFolder.getDateCreated(),   
       childFolder.getLastUpdated(),
+      /*You can change what information to display on the sheet.
+      In this case I only need file name,url date create and updated.
+      You also can change what information want to display first by changing order of the things. */
     ];
     // Write
     sheet.appendRow(data);
