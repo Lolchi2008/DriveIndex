@@ -1,4 +1,4 @@
-# DriveIndex
+# DriveIndex.js
 
 Simple Script for Indexing GDrive using Google Sheet and Script
 
